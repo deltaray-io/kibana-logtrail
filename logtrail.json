@@ -22,7 +22,7 @@
             "message": "log"
         },
         "message_format": "{{{log}}}",
-        "keyword_suffix" : ""
+        "keyword_suffix" : "keyword"
       },
       "color_mapping" : {
       }
