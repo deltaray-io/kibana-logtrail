@@ -2,9 +2,11 @@
 
 # Kibana + Logtrail container
 Kibana container equipped with [Logtrail plugin](https://github.com/sivasamyk/logtrail).
-Logtrail configuration is set to work with Kubernetes/Helm installation of [fluentd](https://www.fluentd.org/) / [fluent-bit](https://fluentbit.io/).
+Logtrail's configuration is adjusted to work with Kubernetes/Helm installation of [fluentd](https://www.fluentd.org/) / [fluent-bit](https://fluentbit.io/).
 
 ## Config adjustments
+### ElasticSearch Index
+* `default_index`: set to `logstash-*` to match fluentd / fluent-bit's defaults
 ### Field mappings
 * `hostname`: set to `kubernetes.namespace_name`
 * `program`: set to `kubernetes.labels.release` which is the Helm chart's name
@@ -13,7 +15,7 @@ Logtrail configuration is set to work with Kubernetes/Helm installation of [flue
 * `keyword_suffix`: set to empty string to avoid '.keyword' append to the hostname variable
 
 ## Usage:
-Replace the stable Kibana Helm chart's image with the [Docker Build](https://hub.docker.com/r/tibkiss/kibana-logtrail).
+Replace the Kibana Helm chart's image with the built [Docker Image](https://hub.docker.com/r/tibkiss/kibana-logtrail).
 Tested with Kibana Helm chart version: 0.11.0
 
 ## License
